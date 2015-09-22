@@ -45,5 +45,21 @@ namespace Poker.Core
         }
 
         #endregion
+
+        #region Overrides of ModelBase
+
+        /// <summary>
+        /// Called when the object is validating the fields.
+        /// </summary>
+        /// <param name="validationContext">The validation context.</param>
+        protected override void OnValidatingFields(IValidationContext validationContext)
+        {
+            if (string.IsNullOrWhiteSpace(Name))
+            {
+                validationContext.AddFieldValidationResult(new FieldValidationResult(NameProperty,ValidationResultType.Error, "Name cannot be empty."));
+            }
+        }
+
+        #endregion
     }
 }

@@ -8,6 +8,7 @@ using Catel.MVVM;
 using Catel.Services;
 using Poker.Application.Model;
 using Poker.Core;
+using System.Linq;
 
 namespace Poker.Application.ViewModel
 {
@@ -125,7 +126,9 @@ namespace Poker.Application.ViewModel
         private void OnConfigurePlayers()
         {
             var playerSettings = _playerConfigurationFactory();
-            if (_uiVisualizerService.ShowDialog(playerSettings) == true)
+            // If the user doesn't cancel the view and there are no errors, start the game.
+            if (_uiVisualizerService.ShowDialog(playerSettings) == true &&
+                playerSettings.Players.All(t => !t.HasErrors))
             {
                 GameController.Players = playerSettings.Players;
                 GameController.StartNewGame(_gameFactory(playerSettings.Players));

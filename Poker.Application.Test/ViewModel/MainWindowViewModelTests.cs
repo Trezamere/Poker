@@ -109,7 +109,7 @@ namespace Poker.Application.Test.ViewModel
         /// Test for the ConfigurePlayersCommand when ShowsSettingsDialog.
         /// </summary>
         [TestMethod]
-        public void ConfigurePlayersCommand_Execute_DialogReturnsTrue_SetsPlayersAndStartsNewGame()
+        public void ConfigurePlayersCommand_Execute_DialogReturnsTrue_NoValidationErrors_SetsPlayersAndStartsNewGame()
         {
             // ARRANGE
             FakePlayerConfigurationViewModel.Players.Returns(
@@ -131,6 +131,33 @@ namespace Poker.Application.Test.ViewModel
             // ASSERT
             Assert.AreEqual(FakePlayerConfigurationViewModel.Players, FakeGameController.Players);
             FakeGameController.Received().StartNewGame(fakeGame);
+        }
+
+        [TestMethod]
+        public void ConfigurePlayersCommand_Execute_DialogReturnsTrue_HasValidationErrors_DoesNotSetsPlayersAndStartsNewGame()
+        {
+            // ARRANGE
+            FakePlayerConfigurationViewModel.Players.Returns(
+                new System.Collections.ObjectModel.ObservableCollection<IPlayer>
+                    {
+                        Substitute.For<IPlayer>(),
+                        Substitute.For<IPlayer>()
+                    });
+            // add an error.
+            FakePlayerConfigurationViewModel.Players[1].HasErrors.Returns(true);
+
+            FakePlayerConfigurationFactory.Invoke().Returns(FakePlayerConfigurationViewModel);
+            FakeUiVisualizerService.ShowDialog(FakePlayerConfigurationViewModel).Returns(true);
+
+            var fakeGame = Substitute.For<IGame>();
+            FakeGameFactory.Invoke(FakePlayerConfigurationViewModel.Players).Returns(fakeGame);
+
+            // ACT
+            Target.ConfigurePlayersCommand.Execute();
+
+            // ASSERT
+            FakeGameController.DidNotReceive().Players = FakePlayerConfigurationViewModel.Players;
+            FakeGameController.DidNotReceive().StartNewGame(fakeGame);
         }
 
         /// <summary>

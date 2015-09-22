@@ -9,6 +9,8 @@
                   mc:Ignorable="d"
                   d:DataContext="{d:DesignInstance viewModel:PlayerConfigurationViewModel}"
                   Icon="/Resources/Cards.ico"
+                  MinHeight="300"
+                  MinWidth="400"
                   SizeToContent="WidthAndHeight"
                   Title="Configure Players">
 
@@ -25,13 +27,13 @@
         <Label Content="Your name:" 
                HorizontalAlignment="Right"/>
         <TextBox Grid.Row="0" Grid.Column="1"
-                 Text="{Binding Players[0].Name}"/>
+                 Text="{Binding Players[0].Name, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
 
         <Label Grid.Row="1" Grid.Column="0" 
                Content="Opponent name:"
                HorizontalAlignment="Right"/>
         <TextBox Grid.Row="1" Grid.Column="1"
-                 Text="{Binding Players[1].Name}"/>
+                 Text="{Binding Players[1].Name, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
         <!--<ListBox Grid.Row="1" Grid.Column="1" 
                  ItemsSource="{Binding Players}"
                  SelectedItem="{Binding SelectedPlayer}">
