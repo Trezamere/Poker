@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{42D535C1-FB39-41CB-9262-8441C5A69186}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Poker.Core</RootNamespace>
+    <AssemblyName>Poker.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Catel.Core, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Catel.Core.4.2.0\lib\net45\Catel.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="Deck\Card.cs" />
+    <Compile Include="Deck\CardComparer.cs" />
+    <Compile Include="Deck\Deck.cs" />
+    <Compile Include="Deck\DeckFactory.cs" />
+    <Compile Include="Deck\IDeck.cs" />
+    <Compile Include="Deck\IDeckFactory.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="Hands\Comparers\HandComparer.cs" />
+    <Compile Include="Hands\Comparers\IHandComparer.cs" />
+    <Compile Include="Hands\Hand.cs" />
+    <Compile Include="Hands\Comparers\FlushComparer.cs" />
+    <Compile Include="Hands\Comparers\FourOfAKindComparer.cs" />
+    <Compile Include="Hands\Comparers\FullHouseComparer.cs" />
+    <Compile Include="Hands\Comparers\PairComparer.cs" />
+    <Compile Include="Hands\Comparers\HighCardComparer.cs" />
+    <Compile Include="Hands\Comparers\StraightComparer.cs" />
+    <Compile Include="Hands\Comparers\StraightFlushComparer.cs" />
+    <Compile Include="Hands\Comparers\ThreeOfAKindComparer.cs" />
+    <Compile Include="Hands\Comparers\TwoPairComparer.cs" />
+    <Compile Include="Hands\Hands.cs" />
+    <Compile Include="Hands\IHand.cs" />
+    <Compile Include="IGame.cs" />
+    <Compile Include="IoC\Bootstrapper.cs" />
+    <Compile Include="IPlayer.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="PlayerHandComparer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Deck\Rank.cs" />
+    <Compile Include="Deck\Suit.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

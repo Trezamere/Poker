@@ -1,0 +1,92 @@
+﻿<catel:DataWindow x:Class="Poker.Application.View.MainWindow"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:catel="http://catel.codeplex.com"
+                  xmlns:viewModel="clr-namespace:Poker.Application.ViewModel"
+                  mc:Ignorable="d"
+                  d:DataContext="{d:DesignInstance viewModel:MainWindowViewModel}"
+                  Icon="/Resources/Cards.ico"
+                  MaxHeight="600"
+                  MaxWidth="800"
+                  ShowInTaskbar="True"
+                  Title="Poker">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Image Grid.ColumnSpan="1"
+               Grid.RowSpan="4"
+               Source="/Resources/Background.jpg"
+               Stretch="Fill" />
+
+        <StackPanel Grid.Row="0"
+                    HorizontalAlignment="Left">
+            <Label Content="{Binding Players[1].Name}"
+                   Foreground="{StaticResource WhiteBrush}" />
+
+            <ItemsControl ItemsSource="{Binding Path=Players[1].Hand}" 
+                          ItemTemplateSelector="{StaticResource CardTemplateSelector}"
+                          Style="{StaticResource CardsItemsControl}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="0"
+                    HorizontalAlignment="Right">
+            
+            <!--<ItemsControl ItemsSource="{Binding Path=Deck}" 
+                          ItemTemplateSelector="{StaticResource CardTemplateSelector}"
+                          Style="{StaticResource CardsItemsControl}" />-->
+        </StackPanel>
+
+        <StackPanel Grid.Row="2"
+                    HorizontalAlignment="Right">
+
+            <ItemsControl ItemsSource="{Binding Players[0].Hand}"
+                          ItemTemplateSelector="{StaticResource CardTemplateSelector}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="{x:Type ContentPresenter}">
+                        <Setter Property="Margin" Value="3"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+            </ItemsControl>
+            
+            <Label Content="{Binding Players[0].Name}"
+                   Foreground="{StaticResource WhiteBrush}"
+                   HorizontalAlignment="Right"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="3"
+                    Orientation="Horizontal">
+            <Button Content="Configure Players..."
+                    Command="{Binding ConfigurePlayersCommand}"
+                    HorizontalAlignment="Left" />
+
+            <ToggleButton Content="5-Card Draw"
+                          IsChecked="True"
+                          IsEnabled="False"
+                          HorizontalAlignment="Left" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="3"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+            <Button Command="{Binding StartRoundCommand}"
+                    Content="Deal"
+                    HorizontalAlignment="Right"/>
+            <Button Command="{Binding EndRoundCommand}"
+                    Content="Check"
+                    HorizontalAlignment="Right"/>
+        </StackPanel>
+    </Grid>
+</catel:DataWindow>

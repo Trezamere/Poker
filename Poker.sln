@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poker.Application", "Poker.Application\Poker.Application.csproj", "{1FF2AB8C-99AC-43B0-A230-2055A4B2E049}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poker.Core", "Poker.Core\Poker.Core.csproj", "{42D535C1-FB39-41CB-9262-8441C5A69186}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poker.Core.Test", "Poker.Core.Test\Poker.Core.Test.csproj", "{09996726-D31D-4AC0-9497-FAA06F3C0827}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poker.Application.Test", "Poker.Application.Test\Poker.Application.Test.csproj", "{E294D6C0-67FD-4518-A1B4-01489E21A7E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FF2AB8C-99AC-43B0-A230-2055A4B2E049}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FF2AB8C-99AC-43B0-A230-2055A4B2E049}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FF2AB8C-99AC-43B0-A230-2055A4B2E049}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FF2AB8C-99AC-43B0-A230-2055A4B2E049}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42D535C1-FB39-41CB-9262-8441C5A69186}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42D535C1-FB39-41CB-9262-8441C5A69186}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42D535C1-FB39-41CB-9262-8441C5A69186}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42D535C1-FB39-41CB-9262-8441C5A69186}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09996726-D31D-4AC0-9497-FAA06F3C0827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09996726-D31D-4AC0-9497-FAA06F3C0827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09996726-D31D-4AC0-9497-FAA06F3C0827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09996726-D31D-4AC0-9497-FAA06F3C0827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E294D6C0-67FD-4518-A1B4-01489E21A7E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E294D6C0-67FD-4518-A1B4-01489E21A7E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E294D6C0-67FD-4518-A1B4-01489E21A7E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E294D6C0-67FD-4518-A1B4-01489E21A7E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

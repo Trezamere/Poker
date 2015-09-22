@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1FF2AB8C-99AC-43B0-A230-2055A4B2E049}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Poker.Application</RootNamespace>
+    <AssemblyName>Poker.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Poker.Application.App</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Catel.Core, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Catel.Core.4.2.0\lib\net45\Catel.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Catel.Extensions.Controls, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Catel.Extensions.Controls.4.2.0\lib\net45\Catel.Extensions.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Catel.MVVM, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Catel.MVVM.4.2.0\lib\net45\Catel.MVVM.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.1.2.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.1.2.0\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.1.2.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Extensions.cs" />
+    <Compile Include="IoC\Bootstrapper.cs" />
+    <Compile Include="Model\GameController.cs" />
+    <Compile Include="Model\IRoundResult.cs" />
+    <Compile Include="Model\RoundResult.cs" />
+    <Compile Include="Model\IGameController.cs" />
+    <Compile Include="Model\IPlayerConfiguration.cs" />
+    <Compile Include="Model\PlayerConfiguration.cs" />
+    <Compile Include="Resources\Cards\CardArtTemplateSelector.cs" />
+    <Compile Include="Resources\Cards\CardTemplateSelector.cs" />
+    <Compile Include="Resources\Cards\Controls\SuitControl.cs" />
+    <Compile Include="Resources\Converters\BoolToThicknessConverter.cs" />
+    <Compile Include="Resources\Converters\GridColumnToIndexConverter.cs" />
+    <Compile Include="Resources\Cards\Converters\RankConverter.cs" />
+    <Compile Include="Resources\Cards\PlayingCard.cs" />
+    <Compile Include="Resources\Converters\PlayerToResultConverter.cs" />
+    <Compile Include="ViewModel\IMainWindowViewModel.cs" />
+    <Compile Include="ViewModel\IRoundResultViewModel.cs" />
+    <Compile Include="ViewModel\RoundResultViewModel.cs" />
+    <Compile Include="ViewModel\IPlayerConfigurationViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="View\RoundResultView.xaml.cs">
+      <DependentUpon>RoundResultView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Resources\Cards\CardArtTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Cards\CardResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\PlayerConfigurationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\PokerResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RoundResultView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="View\PlayerConfigurationView.xaml.cs">
+      <DependentUpon>PlayerConfigurationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\PlayerConfigurationViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Resource Include="Resources\Entypo.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Poker.Core\Poker.Core.csproj">
+      <Project>{42D535C1-FB39-41CB-9262-8441C5A69186}</Project>
+      <Name>Poker.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\WindowsIcons-license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Entypo-license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Cards.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Cards\Decks\Classic\Back.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\C10.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\C2.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\C3.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\C4.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\C5.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\C6.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\C7.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\C8.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\C9.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\CA.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\CJ.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\CK.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\CQ.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\D10.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\D2.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\D3.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\D4.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\D5.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\D6.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\D7.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\D8.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\D9.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\DA.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\DJ.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\DK.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\DQ.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\H10.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\H2.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\H3.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\H4.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\H5.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\H6.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\H7.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\H8.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\H9.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\HA.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\HJ.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\HK.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\HQ.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\S10.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\S2.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\S3.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\S4.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\S5.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\S6.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\S7.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\S8.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\S9.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\SA.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\SJ.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\SK.png" />
+    <Resource Include="Resources\Cards\Decks\Classic\SQ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Background.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
